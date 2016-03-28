@@ -32,7 +32,7 @@ public class Mazzo {
     }
     
     public void stampaMazzo() {
-        for(int i = 0; i<40; i++) {
+        for(int i = 0; i<mazzo.size(); i++) {
             Carta carta = mazzo.get(i);
             carta.stampaValore();
             System.out.print(" di ");
@@ -42,5 +42,12 @@ public class Mazzo {
     
     public Carta getCarta(int indice) {
         return mazzo.get(indice);
+    }
+    
+    public void rimuoviCarta(int indice) {
+        mazzo.remove(indice);
+    }
+    public int carteRimanenti() {
+        return mazzo.size();
     }
 }
