@@ -48,7 +48,7 @@ public class Carta {
         else if(valore == 10)
             punti = 4;
         else
-            punti = valore;
+            punti = 0;
     }
     
     public void stampaPalo() {
