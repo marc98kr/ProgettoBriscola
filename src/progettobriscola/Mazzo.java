@@ -39,4 +39,8 @@ public class Mazzo {
             carta.stampaPalo();
         }
     }
+    
+    public Carta getCarta(int indice) {
+        return mazzo.get(indice);
+    }
 }

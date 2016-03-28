@@ -9,13 +9,6 @@ package progettobriscola;
  *
  * @author Marco
  */
-public class ProgettoBriscola {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Mazzo mazzo = new Mazzo();
-        mazzo.stampaMazzo();
-    }
+public class Giocatore {
+    
 }
