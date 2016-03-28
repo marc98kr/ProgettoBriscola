@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package progettobriscola;
 
 import java.util.ArrayList;
@@ -13,20 +8,29 @@ import java.util.ArrayList;
  */
 public class ProgettoBriscola {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Mazzo mazzo = new Mazzo();
-        mazzo.stampaMazzo();
-        Giocatore g1 = new Giocatore("Marco", creaMazzo(mazzo));
-        Giocatore g2 = new Giocatore("Domenico", creaMazzo(mazzo));
-        System.out.println("\n\n\nMazzo dopo aver dato le carte:");
+        /*Mazzo mazzo = new Mazzo();
+        mazzo.stampaMazzo();*/
+        Giocatore g1 = new Giocatore("Marco"/*, creaMazzo(mazzo)*/);
+        Giocatore g2 = new Giocatore("Domenico"/*, creaMazzo(mazzo)*/);
+        /*System.out.println("\n\n\nMazzo dopo aver dato le carte:");
         mazzo.stampaMazzo();
         System.out.println("\n\n\nMazzo g1:");
         g1.stampaMazzo();
         System.out.println("\n\n\nMazzo g2:");
         g2.stampaMazzo();
+        Carta briscola = mazzo.getCarta(mazzo.carteRimanenti()-1);
+        System.out.println("Briscola: ");
+        briscola.stampaPalo(); briscola.stampaValore();*/
+        Briscola gioco = new Briscola(g1, g2);
+        System.out.println("Mazzo:");
+        gioco.getMazzo().stampaMazzo();
+        System.out.println("____________________________________________________________________________");
+        System.out.println("Carte distribuite");
+        gioco.distribuisciCarte();
+        gioco.stampaMazziGiocatori();
+        System.out.println("Briscola:");
+        gioco.getBriscola().stampaCarta();
     }
     
     public static ArrayList<Carta> creaMazzo(Mazzo mazzo) {

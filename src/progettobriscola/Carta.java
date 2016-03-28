@@ -10,9 +10,14 @@ package progettobriscola;
  * @author Marco
  */
 public class Carta {
-    private int palo; /* 1 = Bastoni, 2 = Coppe, 3 = Denari, 4 = Spade*/
+    private int palo; /*1 = Bastoni, 2 = Coppe, 3 = Denari, 4 = Spade*/
     private int valore; /*1 = Asso,2,3,4,5,6,7, 8 = Fante, 9 = Cavallo, 10 = Re*/
-
+    private int punti; /*Punti associati alla carta*/
+    public void stampaCarta() {
+        stampaValore();
+        System.out.println(" di ");
+        stampaPalo();
+    }
     public int getPalo() {
         return palo;
     }
@@ -28,9 +33,22 @@ public class Carta {
     public void setValore(int valore) {
         this.valore = valore;
     }
+    
     public Carta(int palo, int valore) {
         this.palo = palo;
         this.valore = valore;
+        if(valore == 1)
+            punti = 11;
+        else if(valore == 3)
+            punti = 10;
+        else if(valore == 8)
+            punti = 2;
+        else if(valore == 9)
+            punti = 3;
+        else if(valore == 10)
+            punti = 4;
+        else
+            punti = valore;
     }
     
     public void stampaPalo() {
@@ -84,6 +102,4 @@ public class Carta {
                 break;
         }
     }
-    
-    
 }

@@ -50,4 +50,10 @@ public class Mazzo {
     public int carteRimanenti() {
         return mazzo.size();
     }
+    
+    public Carta pescaCarta() {
+        Carta cartaPescata = mazzo.get(0);
+        rimuoviCarta(0);
+        return cartaPescata;
+    }
 }
