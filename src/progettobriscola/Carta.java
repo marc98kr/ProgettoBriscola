@@ -18,6 +18,7 @@ public class Carta {
         System.out.println(" di ");
         stampaPalo();
     }
+    
     public int getPalo() {
         return palo;
     }
@@ -32,6 +33,10 @@ public class Carta {
 
     public void setValore(int valore) {
         this.valore = valore;
+    }
+    
+    public int getPunti() {
+        return punti;
     }
     
     public Carta(int palo, int valore) {
@@ -54,7 +59,7 @@ public class Carta {
     public void stampaPalo() {
         switch(palo) {
             case 1:
-                System.out.println("bastoni");
+                System.out.println("Bastoni");
                 break;
             case 2:
                 System.out.println("Coppe");
@@ -66,6 +71,20 @@ public class Carta {
                 System.out.println("Spade");
                 break;
         }
+    }
+    
+    public String paloToString() {
+        switch(palo) {
+            case 1:
+                return "bastoni";
+            case 2:
+                return "coppe";
+            case 3:
+                return "denari";
+            case 4:
+                return "spade";
+        }
+        return null;
     }
     
     public void stampaValore() {
@@ -101,5 +120,31 @@ public class Carta {
                 System.out.print("Re");
                 break;
         }
+    }
+    
+    public String valoreToString() {
+        switch(valore) {
+            case 1:
+                return "asso";
+            case 2:
+                return "due";
+            case 3:
+                return "tre";
+            case 4:
+                return "quattro";
+            case 5:
+                return "cinque";
+            case 6:
+                return "sei";
+            case 7:
+                return "sette";
+            case 8:
+                return "fante";
+            case 9:
+                return "cavallo";
+            case 10:
+                return "re";
+        }
+        return null;
     }
 }
