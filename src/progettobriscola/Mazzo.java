@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package progettobriscola;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
+ * La classe mazzo rappresenta il mazzo di carte di Briscola, consiste in un ArrayList contenente 40 oggetti di classe
+ * Carta e alcuni metodi per la gestione del mazzo.
  * @author Marco
  */
 public class Mazzo {
@@ -26,7 +22,7 @@ public class Mazzo {
                 mazzo.add(new Carta(i,j));
         }
     }
-    
+    /**Randomizza l'ordine degli oggetti Carta all'interno dell'ArrayList mazzo*/
     private void mischiaMazzo() {
         Collections.shuffle(mazzo, new java.util.Random(System.nanoTime()));
     }
@@ -43,14 +39,14 @@ public class Mazzo {
     public Carta getCarta(int indice) {
         return mazzo.get(indice);
     }
-    
+    /**Rimuove una carta dal mazzo*/
     public void rimuoviCarta(int indice) {
         mazzo.remove(indice);
     }
     public int carteRimanenti() {
         return mazzo.size();
     }
-    
+    /**Restituisci la carta di indice 0, ovvero la prima, e la rimuove dal mazzo*/
     public Carta pescaCarta() {
         Carta cartaPescata = mazzo.get(0);
         rimuoviCarta(0);

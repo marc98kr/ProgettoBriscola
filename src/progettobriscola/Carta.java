@@ -38,7 +38,7 @@ public class Carta {
     public int getPunti() {
         return punti;
     }
-    
+    /**Costruttore che assegna un punteggio in base al valore della carta secondo le regole della Briscola*/
     public Carta(int palo, int valore) {
         this.palo = palo;
         this.valore = valore;

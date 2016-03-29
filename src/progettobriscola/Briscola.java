@@ -58,7 +58,7 @@ public class Briscola {
     public void setG2(Giocatore g2) {
         this.g2 = g2;
     } 
-
+    /**Metodo che distruibisce le carte ai giocatori, una ciascuno, e pesca la briscola*/
     public void distribuisciCarte() {
         for(int i=0; i<3; i++) {
             Carta c = mazzo.pescaCarta();
