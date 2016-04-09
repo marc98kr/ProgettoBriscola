@@ -73,5 +73,12 @@ public class Briscola {
         g1.stampaMazzo();
         g2.stampaMazzo();
     }
-
+    
+    public boolean fine() {
+        return g1.getPunti() + g2.getPunti() == 120;
+    }
+    
+    public boolean isBriscola(Carta carta) {
+        return carta.getPalo() == briscola.getPalo();
+    }
 }

@@ -28,6 +28,12 @@ public class Giocatore {
             mazzo.get(i).stampaValore(); System.out.print(" di "); mazzo.get(i).stampaPalo();
         }
     }
+    
+    public Carta calaCarta(int i) {
+        Carta carta = mazzo.get(i);
+        mazzo.remove(i);
+        return carta;
+    }
     /**Aggiunge una carta al mazzo del giocatore*/
     public void aggiungiCarta(Carta carta) {
         mazzo.add(carta);
@@ -40,7 +46,9 @@ public class Giocatore {
     public void aumentaPunti(int valore) {
         punti += valore;
     }
-    
+    public String getNickname() {
+        return nickname;
+    }
     public int getPunti() {
         return punti;
     }

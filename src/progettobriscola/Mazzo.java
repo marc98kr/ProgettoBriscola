@@ -43,6 +43,7 @@ public class Mazzo {
     public void rimuoviCarta(int indice) {
         mazzo.remove(indice);
     }
+    /**Restituisce il numero di carte rimanenti*/
     public int carteRimanenti() {
         return mazzo.size();
     }
@@ -51,5 +52,8 @@ public class Mazzo {
         Carta cartaPescata = mazzo.get(0);
         rimuoviCarta(0);
         return cartaPescata;
+    }
+    public boolean mazzoFinito() {
+        return mazzo.isEmpty();
     }
 }
