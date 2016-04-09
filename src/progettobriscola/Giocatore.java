@@ -52,4 +52,8 @@ public class Giocatore {
     public int getPunti() {
         return punti;
     }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }

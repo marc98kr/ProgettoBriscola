@@ -3,6 +3,8 @@ package progettobriscola;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.Socket;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +12,13 @@ import java.util.ArrayList;
  * @author Marco
  */
 public class ProgettoBriscola {
-
+    
+    private static PrintStream out;
+    private static BufferedReader in;
+    
     public static void main(String[] args) throws IOException {
+        new Server("Marco").start();
+        simulaClient();
         /*Mazzo mazzo = new Mazzo();
         mazzo.stampaMazzo();*/
         Giocatore g1 = new Giocatore("Marco"/*, creaMazzo(mazzo)*/);
@@ -25,19 +32,30 @@ public class ProgettoBriscola {
         Carta briscola = mazzo.getCarta(mazzo.carteRimanenti()-1);
         System.out.println("Briscola: ");
         briscola.stampaPalo(); briscola.stampaValore();*/
-        Briscola gioco = new Briscola(g1, g2);
-        System.out.println("Mazzo:");
-        gioco.getMazzo().stampaMazzo();
-        System.out.println("____________________________________________________________________________");
-        System.out.println("Carte distribuite");
-        gioco.distribuisciCarte();
-        gioco.stampaMazziGiocatori();
-        System.out.println("Briscola:");
-        gioco.getBriscola().stampaCarta();
-        System.out.println("\n\n\n\n\n");
-        gioca(g1, g2, gioco);
+        
+        //gioca(g1, g2, gioco);
     }
-    
+    private static void simulaClient() {
+        Giocatore g = new Giocatore("Domenico"/*, creaMazzo(mazzo)*/);
+        Socket socket = null;
+        try {
+            socket = new Socket("127.0.0.1", 9999);
+            System.out.println("[Client]Mi sono connesso al Server. Indirizzo del server: " + socket.getInetAddress());
+        } catch(Exception e) {
+            System.out.println("[Client]Impossibile comunicare con il server");
+        }
+        //Invio al server il nome del giocatore
+        inviaMessaggio(g.getNickname(), socket);
+    }
+
+    public static void inviaMessaggio(String messaggio, Socket destinatario) {
+        try {
+            out = new PrintStream(destinatario.getOutputStream());
+            out.println(messaggio);
+        } catch (IOException ex) {
+            System.out.println("[Client]Problemi nella comunicazione con il secondo giocatore. Impossibile inviare un messaggio.");
+        }
+    }
     public static ArrayList<Carta> creaMazzo(Mazzo mazzo) {
         ArrayList<Carta> carte = new ArrayList<Carta>();
         for(int i=0; i<3; i++) {
