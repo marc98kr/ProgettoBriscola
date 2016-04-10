@@ -92,7 +92,19 @@ public class Server extends Thread {
     
     public static void gioca(Giocatore g1, Giocatore g2, Briscola gioco) throws IOException {
        while(!gioco.fine()) {
+           /*
            
+                    CODICE GIOCO.
+           
+           */
+           /* Se il mazzo è finito comincia la fase finale*/
+           if(gioco.getMazzo().mazzoFinito()) {
+               for(int i=0; i<3; i++) {
+                   /*
+                        CODICE GIOCO SENZA PESCAGGIO DAL MAZZO.
+                   */
+               }
+           }
        }
     }
     /**Metodo che determina il giocatore che vince la mano. Il metodo ritorna 1 se vince il giocatore 1 e 2 se vince il giocatore 2.*/
