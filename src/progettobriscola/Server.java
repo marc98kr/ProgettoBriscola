@@ -61,7 +61,11 @@ public class Server extends Thread {
         System.out.println("Briscola:");
         gioco.getBriscola().stampaCarta();
         System.out.println("\n\n\n\n\n");
-        //gioca(g1, g2, gioco);
+        try {
+            gioca(g1, g2, gioco);
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //Ottengo la stringa inviata dal secondo giocatore
@@ -86,4 +90,28 @@ public class Server extends Thread {
         }
     }
     
+    public static void gioca(Giocatore g1, Giocatore g2, Briscola gioco) throws IOException {
+       while(!gioco.fine()) {
+           
+       }
+    }
+    /**Metodo che determina il giocatore che vince la mano. Il metodo ritorna 1 se vince il giocatore 1 e 2 se vince il giocatore 2.*/
+    public static int vincitoreMano(Carta carta1, Carta carta2, int paloBriscola, int primo) {
+    //primo = quale giocatore ha calato per primo(1 se giocatore 1, 2 se giocatore 2).    
+    //Se sono dello stesso palo
+        if(carta1.getPalo() == carta2.getPalo()) {
+            if(carta1.getValore() > carta2.getValore()) 
+                return 1;
+            else
+                return 2;
+        }
+        //Se non sono dello stesso palo
+        else {
+            if(carta1.getPalo() == paloBriscola)
+                return 1;
+            else if(carta2.getPalo() == paloBriscola)
+                return 2;
+            return primo;
+        }
+    }
 }
