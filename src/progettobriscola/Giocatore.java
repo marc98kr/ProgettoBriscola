@@ -28,7 +28,7 @@ public class Giocatore {
             mazzo.get(i).stampaValore(); System.out.print(" di "); mazzo.get(i).stampaPalo();
         }
     }
-    
+    /*Cala la carta contenuta nel mazzo all'indice passato come parametro*/
     public Carta calaCarta(int i) {
         Carta carta = mazzo.get(i);
         mazzo.remove(i);
@@ -46,9 +46,11 @@ public class Giocatore {
     public void aumentaPunti(int valore) {
         punti += valore;
     }
+    /*Ritorna il nickname del giocatore*/
     public String getNickname() {
         return nickname;
     }
+    /*Ritorna i punti totalizzati dal giocatore*/
     public int getPunti() {
         return punti;
     }

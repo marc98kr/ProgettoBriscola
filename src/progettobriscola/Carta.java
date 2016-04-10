@@ -18,7 +18,7 @@ public class Carta {
         System.out.println(" di ");
         stampaPalo();
     }
-    
+    /**Ritorna il palo della carta(1 = Bastoni, 2 = Coppe, 3 = Denari, 4 = Spade)*/
     public int getPalo() {
         return palo;
     }
@@ -26,7 +26,7 @@ public class Carta {
     public void setPalo(int palo) {
         this.palo = palo;
     }
-
+    /**Ritorna il valore numerico della carta*/
     public int getValore() {
         return valore;
     }
@@ -34,7 +34,7 @@ public class Carta {
     public void setValore(int valore) {
         this.valore = valore;
     }
-    
+    /*Ritorna il valore in punti della carta*/
     public int getPunti() {
         return punti;
     }
